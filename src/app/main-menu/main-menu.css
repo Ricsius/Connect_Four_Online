@@ -1,0 +1,13 @@
+h1 {
+    margin-top: 0px;
+}
+
+mat-grid-list {
+    height: 90%;
+}
+
+
+.menuButton {
+    width: 200px;
+    height: 100px;
+}
