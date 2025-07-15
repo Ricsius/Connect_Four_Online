@@ -6,20 +6,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   selector: 'app-game',
   imports: [
     MatButtonModule,
-    RouterLink, 
+    RouterLink,
     RouterLinkActive
   ],
   templateUrl: './game.html',
   styleUrl: './game.css'
 })
 export class Game implements OnInit, AfterViewInit {
-  @ViewChild('myCanvas') 
+  @ViewChild('myCanvas')
   private canvas!: ElementRef<HTMLCanvasElement>;
   private context!: CanvasRenderingContext2D;
   private gameGridWidth: number = 7;
   private gameGridHeight: number = 6;
   private radius: number = 10;
-  private pixelsBetweenCircles: number = 10;
+  private pixelsBetweenTokens: number = 10;
   private playerColors: string[] = [
     "blue",
     "red"
@@ -59,13 +59,13 @@ export class Game implements OnInit, AfterViewInit {
 
       for (let x = 0; x < this.gameGridWidth; x++) {
         if (this.gameState[y][x] !== 0) {
-          this.drawFilledCircle(currentPosX, currentPosY, this.playerColors[this.gameState[y][x] - 1]);
+          this.drawToken(currentPosX, currentPosY, this.playerColors[this.gameState[y][x] - 1]);
         }
 
         currentPosX += this.cellSizeX;
       }
 
-      currentPosY -= this.radius + this.pixelsBetweenCircles;
+      currentPosY -= this.radius + this.pixelsBetweenTokens;
     }
   }
 
@@ -82,7 +82,7 @@ export class Game implements OnInit, AfterViewInit {
     }
   }
 
-  private drawFilledCircle(posX: number, posY: number, color: string): void {
+  private drawToken(posX: number, posY: number, color: string): void {
     this.context.fillStyle = color;
     this.context.beginPath();
     this.context.arc(posX, posY, this.radius, 0, 2 * Math.PI);

@@ -3,15 +3,12 @@
 </h1>
 
 <mat-grid-list cols="1" rowHeight="fit">
+    @for (gameModeLabel of gameModeLabels; track $index) {
     <mat-grid-tile>
-        <button class="menuButton" matButton="filled" disabled>
-            Singleplayer
+        <button class="menuButton" matButton="filled" (click)="selectGameMode(gameModeLabel[0])"
+            [disabled]="disabledGameModes.includes(gameModeLabel[0])">
+            {{gameModeLabel[1]}}
         </button>
     </mat-grid-tile>
-    
-    <mat-grid-tile>
-        <button class="menuButton" matButton="filled" routerLink="/game" routerLinkActive="active">
-            Local Multiplayer
-        </button>
-    </mat-grid-tile>
+    }
 </mat-grid-list>
