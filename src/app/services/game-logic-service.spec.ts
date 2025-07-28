@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { GameLogicService } from './game-logic-service';
 import { GameMode, GameOutcome, GameState } from './game-logic.model';
 import { Subscription } from 'rxjs';
-import { input } from '@angular/core';
 
 type GameSimulationInput = {
   player1Moves: number[];

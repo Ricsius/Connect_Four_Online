@@ -4,10 +4,10 @@ export enum GameMode {
 }
 
 export enum GameOutcome {
-    InProgress,
-    Player1Won,
-    Player2Won,
-    Draw
+    InProgress = 0,
+    Player1Won = 1,
+    Player2Won = 2,
+    Draw = 3
 }
 
 export class GameState {
